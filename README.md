@@ -15,3 +15,4 @@
 
 #####注意：
 * 自动生成代码时，可修改源码中 /resources/template中的vm文件，生成符合自己项目规范的基础代码。包路径在generator.properties中修改
+* 此工具目前只支持mysql，后续会补充其他。
