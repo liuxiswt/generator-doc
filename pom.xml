@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.enilu</groupId>
-    <artifactId>database-doc-generator</artifactId>
+    <groupId>com.liuxi</groupId>
+    <artifactId>generator-doc</artifactId>
     <version>1.0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -153,10 +153,6 @@
                 <version>2.4</version>
                 <configuration>
                     <appendAssemblyId>false</appendAssemblyId>
-                    <finalName>${project.artifactId}-${build.timestamp}</finalName>
-                    <descriptors>
-                        <descriptor>dist.xml</descriptor>
-                    </descriptors>
                 </configuration>
                 <executions>
                     <execution>
