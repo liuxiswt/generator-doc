@@ -1,0 +1,23 @@
+package ${package}.${moduleName}.mapper;
+
+import ${package}.${moduleName}.entity.${className};
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+##import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * ${comments}
+ * 
+ * @author #*${author}*#
+ * @date ${datetime}
+ */
+##@Mapper
+public interface ${className}Dao extends BaseMapper<${className}> {
+	#*//增
+    int insert(${className} ${classname});
+    //删
+    int delete(@Param("${pk.attrname}")${pk.attrType} ${pk.attrname});
+    //改
+    int update(${className} ${classname});
+    //查
+    ${className} selectOne(@Param("${pk.attrname}")${pk.attrType} ${pk.attrname});*#
+}

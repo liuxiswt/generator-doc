@@ -1,0 +1,55 @@
+package ${package}.${moduleName}.service;
+
+import ${package}.${moduleName}.entity.${className};
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.util.Map;
+
+/**
+ * ${comments}
+ *
+ * @author #*${author}*#
+ * @date ${datetime}
+ */
+@Service
+public class ${className}ServiceImpl implements ${className}Service{
+
+    private final Logger logger = LoggerFactory.getLogger(${className}Service.class);
+    @Autowired
+    private ${className}Dao ${classname}Dao;
+
+    //新增
+    @Transactional
+    public int save(${className} ${classname}){
+        logger.info("add new ${className} success",${className}.toString());
+        return ${classname}Dao.insert(${classname});
+    }
+
+    //修改
+    @Transactional
+    public int update(${className} ${classname}){
+        logger.info("update ${className} success",${className}.toString());
+        return ${classname}Dao.update(${classname});
+    }
+
+    //删除
+    @Transactional
+    public int delete(${pk.attrType} ${pk.attrname}){
+        logger.info("delete ${className}={}success",${pk.attrname});
+        return ${classname}Dao.deleteById(${pk.attrname});
+    }
+
+    //详情
+    public ${className} getById(${pk.attrType} ${pk.attrname}){
+        logger.info("select ${className}={} success",${pk.attrname});
+        return ${classname}Dao.selectById(${pk.attrname});
+    }
+
+
+
+
+}
+

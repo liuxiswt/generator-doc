@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="${package}.${moduleName}.mapper.${className}Mapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="${package}.${moduleName}.entity.${className}" id="${classname}Map">
+#foreach($column in $columns)
+        <result property="${column.attrname}" column="${column.columnName}"/>
+#end
+    </resultMap>
+
+    #*<insert id="insert" useGeneratedKeys="true" keyProperty="${pk.columnName}">
+        INSERT INTO ${tableName}(
+        <trim suffixOverrides="," >
+        #foreach($column in $columns)
+            <if test="${column.attrname} != null ">
+                `${column.columnName}`,
+            </if>
+        #end
+        </trim>
+        )VALUES (
+        <trim suffixOverrides="," >
+            #foreach($column in $columns)
+                <if test="${column.attrname} != null ">
+                    #{${column.attrname}},
+                </if>
+            #end
+        </trim>
+        )
+    </insert>
+    
+    <update id="update">
+        UPDATE ${tableName}
+        SET
+        <trim suffixOverrides="," >
+            #foreach($column in $columns)
+                <if test="${column.attrname} != null ">
+                    ${column.columnName} = #{${column.attrname}},
+                </if>
+            #end
+        </trim>
+        WHERE
+        ${pk.columnName} = #{${pk.attrname}}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM ${tableName}
+        WHERE
+        ${pk.columnName} = #{${pk.attrname}}
+    </delete>
+    
+    <select id="selectOne" resultMap="${classname}Map">
+        SELECT * FROM ${tableName}
+        WHERE
+        ${pk.columnName} = #{${pk.attrname}}
+    </select>*#
+</mapper>
